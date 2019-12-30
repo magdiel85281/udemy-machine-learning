@@ -66,7 +66,10 @@ plt.ylabel('Salary')
 plt.savefig('../img/poly_reg_smooth.png')
 
 # Predicting a new result with Linear Regression
-print(f'Linear Prediction:\t{lin_reg.predict(np.array(6.5).reshape(-1, 1))}')
+linreg_pred = lin_reg.predict(np.array(6.5).reshape(-1, 1))
+print(f'Linear Prediction:\t{linreg_pred}')
 
 # Predicting a new result with Polynomial Regression
-print(f'Polynomial Prediction:\t{lin_reg_2.predict(poly_reg.fit_transform(np.array(6.5).reshape(-1, 1)))}')
+polyreg_pred = \
+    lin_reg_2.predict(poly_reg.fit_transform(np.array(6.5).reshape(-1, 1)))
+print(f'Polynomial Prediction:\t{polyreg_pred}')

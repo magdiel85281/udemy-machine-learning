@@ -10,8 +10,8 @@ from sklearn.linear_model import LinearRegression
 
 # Importing the dataset
 dataset = pd.read_csv('../data/Salary_Data.csv')
-X = dataset.loc[:, 'YearsExperience'].values
-y = dataset.loc[:, 'Salary'].values
+X = dataset.loc[:, 'YearsExperience'].values.reshape(-1, 1)
+y = dataset.loc[:, 'Salary'].values.reshape(-1, 1)
 
 # Splitting the dataset into the Training set and Test set
 X_train, X_test, y_train, y_test = train_test_split(X, y,
@@ -40,7 +40,8 @@ plt.plot(X_train, regressor.predict(X_train), color='blue')
 plt.title('Salary vs Experience (Training set)')
 plt.xlabel('Years of Experience')
 plt.ylabel('Salary')
-plt.show()
+# plt.show()
+plt.savefig('../img/linreg_training_set.png')
 
 # Visualising the Test set results
 fig = plt.figure(figsize=(16, 8))
@@ -49,4 +50,5 @@ plt.plot(X_train, regressor.predict(X_train), color='blue')
 plt.title('Salary vs Experience (Test set)')
 plt.xlabel('Years of Experience')
 plt.ylabel('Salary')
-plt.show()
+# plt.show()
+plt.savefig('../img/linreg_test_set.png')

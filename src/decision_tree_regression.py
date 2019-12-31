@@ -13,7 +13,9 @@ y = dataset.loc[:, 'Salary'].values.reshape(-1, 1)
 
 # Splitting the dataset into the Training set and Test set
 """from sklearn.cross_validation import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)"""
+X_train, X_test, y_train, y_test = train_test_split(X, y,
+                                                    test_size=0.2,
+                                                    random_state=0)"""
 
 # Feature Scaling
 """from sklearn.preprocessing import StandardScaler
@@ -24,7 +26,17 @@ sc_y = StandardScaler()
 y_train = sc_y.fit_transform(y_train)"""
 
 # Fitting Decision Tree Regression to the dataset
-regressor = DecisionTreeRegressor(criterion='mse', random_state=0)
+regressor = DecisionTreeRegressor(criterion='mse',
+                                  splitter='best',
+                                  max_depth=None,
+                                  min_samples_split=2,
+                                  min_samples_leaf=1,
+                                  min_weight_fraction_leaf=0.0,
+                                  max_features=None,
+                                  random_state=0,
+                                  max_leaf_nodes=None,
+                                  min_impurity_decrease=0.0,
+                                  min_impurity_split=None)
 regressor.fit(X, y)
 
 # Predicting a new result

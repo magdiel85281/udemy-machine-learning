@@ -25,7 +25,17 @@ X = sc_X.fit_transform(X)
 y = sc_y.fit_transform(y)
 
 # Fitting SVR to the dataset
-regressor = SVR(kernel='rbf')
+regressor = SVR(kernel='rbf',
+                degree=3,
+                gamma='scale',
+                coef0=0.0,
+                tol=0.001,
+                C=1.0,
+                epsilon=0.1,
+                shrinking=True,
+                cache_size=200,
+                verbose=False,
+                max_iter=-1)
 regressor.fit(X, y)
 
 # Predicting a new result

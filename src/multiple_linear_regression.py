@@ -59,7 +59,10 @@ sc_y = StandardScaler()
 y_train = sc_y.fit_transform(y_train)"""
 
 # Fitting Multiple Linear Regression to the Training set
-regressor = LinearRegression()
+regressor = LinearRegression(fit_intercept=True,
+                             normalize=False,
+                             copy_X=True,
+                             n_jobs=None)
 regressor.fit(X_train, y_train)
 
 # Predicting the Test set results

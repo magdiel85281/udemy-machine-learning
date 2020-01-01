@@ -24,11 +24,17 @@ X_train = sc_X.fit_transform(X_train)
 X_test = sc_X.transform(X_test)"""
 
 # Fitting Linear Regression to the dataset
-lin_reg = LinearRegression()
+lin_reg = LinearRegression(fit_intercept=True,
+                           normalize=False,
+                           copy_X=True,
+                           n_jobs=None)
 lin_reg.fit(X, y)
 
 # Fitting Polynomial Regression to the dataset
-poly_reg = PolynomialFeatures(degree=4)
+poly_reg = PolynomialFeatures(degree=4,
+                              interaction_only=False,
+                              include_bias=True,
+                              order='C')
 X_poly = poly_reg.fit_transform(X)
 poly_reg.fit(X_poly, y)
 lin_reg_2 = LinearRegression()
